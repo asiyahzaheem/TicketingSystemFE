@@ -1,0 +1,25 @@
+<button (click)="toggleAddEvent()">{{ clickedAddEvent ? 'Close' : 'Add Event' }}</button>
+
+<div *ngIf="clickedAddEvent">
+  <app-event-form></app-event-form>
+</div>
+
+<div style="padding: 16px;">
+  <div nz-row [nzGutter]="32">
+    <div
+      nz-col
+      *ngFor="let event of events"
+      [nzSpan]="12" 
+      style="background-color: #ffeffb; padding: 16px; border: 1px solid #d9d9d9; margin: 20px 0"
+    >
+      <app-event-listing
+        class="gutter-row"
+        [currentEvent]="event"
+      ></app-event-listing>
+    </div>
+  </div>
+</div>
+
+
+
+

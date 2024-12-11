@@ -1,0 +1,14 @@
+<div>
+     <button (click)="addVendor()">Add Vendor</button>
+    <h2>Vendors List {{vendors.length}}</h2>
+    <ul>
+      <li *ngFor="let vendor of vendors">
+        {{ vendor.fullName }}
+      </li>
+    </ul>
+
+    <div *ngIf="vendors.length === 0">
+        No vendors loaded hello
+      </div>
+</div>
+  

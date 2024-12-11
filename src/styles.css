@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    font-family: "Poppins";
+    line-height: 1.1;
+}
+
+body {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+button {
+    background: none;
+    border: 2px solid #fff;
+    padding: 12px 24px;
+    background-color: #fad1f0;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    /* color: rgb(178, 23, 155); */
+    /* width: 120px; */
+        
+}

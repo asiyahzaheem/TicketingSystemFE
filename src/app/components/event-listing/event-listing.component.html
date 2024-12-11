@@ -1,0 +1,33 @@
+<nz-card style="width:300px;" >
+  <h3>{{currentEvent.eventName}}</h3>
+  <p><strong>Location:</strong> {{ currentEvent.location }}</p>
+    <p><strong>Description:</strong> {{ currentEvent.description }}</p>
+    <p><strong>Vendor ID:</strong> {{ currentEvent.vendorId }}</p>
+    <p><strong>Ticketpool ID:</strong> {{ currentEvent.ticketpoolId }}</p>
+    <!-- <p><strong>Total Tickets:</strong> {{ ticketPool.totalTickets }}</p>
+    <p><strong>Available Tickets:</strong> {{ ticketPool.availableTickets }}</p> -->
+    <!-- <p><strong>Total Tickets:</strong> {{ ticketPool?.totalTickets }}</p> -->
+
+
+    <button *ngIf="isVendor" nz-button (click)="onAddTickets()">Add Tickets</button>
+  
+    <!-- Button to buy tickets for consumer -->
+    <button *ngIf="!isVendor" nz-button (click)="onBuyTickets()">Buy Tickets</button>
+
+    <!-- Add Ticket Form for Vendor -->
+    <div *ngIf="showAddTicketForm">
+      <!-- [event]="currentEvent" -->
+      <app-add-ticket-form [currentEvent]="currentEvent"
+      ></app-add-ticket-form>
+    </div>
+
+    <!-- Buy Ticket Form for Consumer -->
+    <div *ngIf="showBuyTicketForm">
+      <!-- [event]="currentEvent" -->
+      <app-buy-ticket-form [currentEvent]="currentEvent"></app-buy-ticket-form>
+    </div>
+</nz-card>
+
+
+  
+  

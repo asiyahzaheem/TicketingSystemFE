@@ -1,0 +1,178 @@
+<form nz-form [formGroup]="eventForm" (ngSubmit)="onSubmit()" [nzLayout]="'vertical'">
+    <!-- Event Details Section -->
+    <fieldset formGroupName="event">
+      <legend>Event Details</legend>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'eventName'" nzRequired>Event Name</nz-form-label>
+        <nz-form-control [nzValidateStatus]="eventForm.get('event.eventName')!" nzHasFeedback>
+          <input
+            nz-input
+            formControlName="eventName"
+            id="eventName"
+            placeholder="Enter event name"
+          />
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'description'">Description</nz-form-label>
+        <nz-form-control>
+          <textarea
+            nz-input
+            formControlName="description"
+            id="description"
+            placeholder="Enter event description"
+          ></textarea>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'location'" nzRequired>Location</nz-form-label>
+        <nz-form-control [nzValidateStatus]="eventForm.get('event.location')!" nzHasFeedback>
+          <input
+            nz-input
+            formControlName="location"
+            id="location"
+            placeholder="Enter event location"
+          />
+          <!-- <nz-form-explain *ngIf="eventForm.get('event.location')?.errors?.['required']">
+            Location is required
+          </nz-form-explain> -->
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzFor]="'time'" nzRequired>Time</nz-form-label>
+        <nz-form-control [nzValidateStatus]="eventForm.get('event.time')!" nzHasFeedback>
+          <input
+            nz-input
+            formControlName="time"
+            id="time"
+            placeholder="Enter event time"
+          />
+          <!-- <nz-form-explain *ngIf="eventForm.get('event.location')?.errors?.['required']">
+            Location is required
+          </nz-form-explain> -->
+        </nz-form-control>
+      </nz-form-item>
+  
+
+      <!-- <nz-form-item>
+        <nz-form-label [nzFor]="'time'" nzRequired>Time</nz-form-label>
+        <nz-form-control
+          [nzValidateStatus]="eventForm.get('event.time')!"
+          nzHasFeedback
+        >
+        <nz-date-picker
+        formControlName="time"
+        [nzMode]="mode"
+        (ngModelChange)="onChange($event)"
+        [nzShowTime]="true"
+        [nzFormat]="'YYYY-MM-DD HH:mm:ss'"
+        placeholder="Select date and time"
+      ></nz-date-picker>
+      
+          <nz-form-explain *ngIf="eventGroup.get('time')?.errors?.['required']">
+            Time is required
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item> -->
+      
+      
+      
+    </fieldset>
+  
+    <!-- Configuration Section -->
+    <fieldset formGroupName="configuration">
+      <legend>Configuration Details</legend>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'totalTickets'" nzRequired>Total Tickets</nz-form-label>
+        <nz-form-control
+          [nzValidateStatus]="eventForm.get('configuration.totalTickets')!"
+          nzHasFeedback
+        >
+          <input
+            nz-input
+            type="number"
+            formControlName="totalTickets"
+            id="totalTickets"
+            placeholder="Enter total tickets"
+          />
+          <!-- <nz-form-explain
+            *ngIf="eventForm.get('configuration.totalTickets')?.errors?.['required']"
+          >
+            Total tickets are required
+          </nz-form-explain> -->
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'maxTicketCapacity'" nzRequired>Max Ticket Capacity</nz-form-label>
+        <nz-form-control
+          [nzValidateStatus]="eventForm.get('configuration.maxTicketCapacity')!"
+          nzHasFeedback
+        >
+          <input
+            nz-input
+            type="number"
+            formControlName="maxTicketCapacity"
+            id="maxTicketCapacity"
+            placeholder="Enter max ticket capacity"
+          />
+          <!-- <nz-form-explain
+            *ngIf="eventForm.get('configuration.maxTicketCapacity')?.errors?.['required']"
+          >
+            Max ticket capacity is required
+          </nz-form-explain> -->
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'ticketReleaseRate'" nzRequired>Ticket Release Rate</nz-form-label>
+        <nz-form-control
+          [nzValidateStatus]="eventForm.get('configuration.ticketReleaseRate')!"
+          nzHasFeedback
+        >
+          <input
+            nz-input
+            type="number"
+            formControlName="ticketReleaseRate"
+            id="ticketReleaseRate"
+            placeholder="Enter ticket release rate"
+          />
+          <!-- <nz-form-explain
+            *ngIf="eventForm.get('configuration.ticketReleaseRate')?.errors?.['required']"
+          >
+            Ticket release rate is required
+          </nz-form-explain> -->
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzFor]="'customerRetrievalRate'" nzRequired>Customer Retrieval Rate</nz-form-label>
+        <nz-form-control
+          [nzValidateStatus]="eventForm.get('configuration.customerRetrievalRate')!"
+          nzHasFeedback
+        >
+          <input
+            nz-input
+            type="number"
+            formControlName="customerRetrievalRate"
+            id="customerRetrievalRate"
+            placeholder="Enter customer retrieval rate"
+          />
+          <!-- <nz-form-explain
+            *ngIf="eventForm.get('configuration.customerRetrievalRate')?.errors?.['required']"
+          >
+            Customer retrieval rate is required
+          </nz-form-explain> -->
+        </nz-form-control>
+      </nz-form-item>
+    </fieldset>
+  
+    <!-- Submit Button -->
+    <button nz-button nzType="primary" [disabled]="eventForm.invalid">Submit</button>
+  </form>
+  

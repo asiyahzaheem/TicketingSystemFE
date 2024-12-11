@@ -1,0 +1,42 @@
+<p>add-ticket-form works!</p>
+<form nz-form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+    <div nz-form-item>
+      <div nz-form-label>
+        <label for="noOfTickets">Number of Tickets</label>
+      </div>
+      <div nz-form-control>
+        <input id="noOfTickets" nz-input formControlName="noOfTickets" type="number" min="1" />
+      </div>
+    </div>
+  
+    <div nz-form-item>
+      <div nz-form-label>
+        <label for="ticketType">Ticket Type</label>
+      </div>
+      <select id="ticketType" formControlName="ticketType">
+        <option value="GENERAL_ADMISSION">General Admission</option>
+        <option value="VIP">VIP</option>
+      </select>
+    </div>
+
+    <!-- <div nz-form-item>
+      <div nz-form-label>
+        <label for="ticketType">Ticket Type</label>
+      </div>
+      <div nz-form-control>
+        <input id="ticketType" nz-input formControlName="ticketType" type="text" />
+      </div>
+    </div> -->
+
+    <div nz-form-item>
+      <div nz-form-label>
+        <label for="price">Price</label>
+      </div>
+      <div nz-form-control>
+        <input id="price" nz-input formControlName="price" type="number" min="0" step="0.01" />
+      </div>
+    </div>
+  
+    <button nz-button nzType="primary" [disabled]="ticketForm.invalid">Add Tickets</button>
+  </form>
+  
